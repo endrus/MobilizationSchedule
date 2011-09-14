@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="small_hall">Mała Sala</string>
+	<string name="big_hall">Duża Sala</string>
+	<string name="app_name">MobilizationSchedule</string>
+
+	<string name="no_schedule">There is no schedule yet, please update</string>
+
+
+	<string-array name="array">
+		<item>string1</item>
+		<item>string2</item>
+		<item>string3</item>
+		<item>string3</item>
+		<item>string3</item>
+		<item>string3</item>
+		<item>string3</item>
+		<item>string3</item>
+		<item>string3</item>
+		<item>string3</item>
+		<item>string3</item>
+		<item>string3</item>
+		<item>string3</item>
+		<item>string3</item>
+		<item>string3</item>
+		<item>string3</item>
+		<item>string3</item>
+		<item>string3</item>
+		<item>string3</item>
+	</string-array>
+</resources>

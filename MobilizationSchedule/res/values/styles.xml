@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="button_pressed" parent="@android:style/Widget.Button">
+		<item name="android:background">@color/bg_dark</item>
+		<item name="android:height">50dip</item>
+		<item name="android:layout_gravity">left</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textSize">20dip</item>
+	</style>
+
+	<style name="button_releassed" parent="@android:style/Widget.Button">
+		<item name="android:background">@color/bg</item>
+		<item name="android:height">50dip</item>
+		<item name="android:layout_gravity">right</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:textStyle">normal</item>
+		<item name="android:textSize">20dip</item>
+	</style>
+
+	<style name="text_black_font" parent="@android:style/TextAppearance.Large"></style>
+
+</resources>
