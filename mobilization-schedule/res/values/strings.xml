@@ -3,6 +3,9 @@
 	<string name="small_hall">Mała Sala</string>
 	<string name="big_hall">Duża Sala</string>
 	<string name="app_name">MobilizationSchedule</string>
+	
+	<string name="update_schedule">Update schedule</string>
+	<string name="credits">Credits</string>
 
 	<string name="no_schedule">There is no schedule yet, please update</string>
 

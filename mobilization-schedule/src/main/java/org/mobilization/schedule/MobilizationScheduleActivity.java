@@ -2,10 +2,15 @@ package org.mobilization.schedule;
 
 import org.mobilization.schedule.model.Event;
 import org.mobilization.schedule.ui.EventListAdapter;
+import org.mobilization.schedule.utils.EventUtils;
 
+import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -29,13 +34,15 @@ public class MobilizationScheduleActivity extends ListActivity {
 
 		this.setContentView(R.layout.main);
 
-		Event[] big = new Event[] { new Event("My Title 1", "Not only Me"), new Event("My Title 2", "Not only Me"), new Event("My Title 3", "Not only Me"),
-				new Event("My Title 4", "Not only Me"), new Event("My Title 5", "Not only Me"), new Event("My Title 6", "Not only Me"),
-				new Event("My Title 7", "Not only Me"), new Event("My Title 8", "Not only Me"), new Event("My Title 9", "Not only Me") };
+		Event[] big = new Event[] { new Event("My Title 1", "Not only Me"), new Event("My Title 2", "Not only Me"),
+				new Event("My Title 3", "Not only Me"), new Event("My Title 4", "Not only Me"), new Event("My Title 5", "Not only Me"),
+				new Event("My Title 6", "Not only Me"), new Event("My Title 7", "Not only Me"), new Event("My Title 8", "Not only Me"),
+				new Event("My Title 9", "Not only Me") };
 
 		Event[] small = new Event[] { new Event("My Small Title 1", "Me & c.o."), new Event("My Small Title 2", "Me & c.o."),
-				new Event("My Small Title 3", "Me & c.o."), new Event("My Small Title 4", "Me & c.o."), new Event("My Small Title 5", "Me & c.o."),
-				new Event("My Small Title 6", "Me & c.o."), new Event("My Small Title 7", "Me & c.o."), new Event("My Small Title 8", "Me & c.o."),
+				new Event("My Small Title 3", "Me & c.o."), new Event("My Small Title 4", "Me & c.o."),
+				new Event("My Small Title 5", "Me & c.o."), new Event("My Small Title 6", "Me & c.o."),
+				new Event("My Small Title 7", "Me & c.o."), new Event("My Small Title 8", "Me & c.o."),
 				new Event("My Small Title 9", "Me & c.o.") };
 
 		final EventListAdapter adapter = eventListAdapter = new EventListAdapter(getApplicationContext(), small, big);
@@ -83,11 +90,44 @@ public class MobilizationScheduleActivity extends ListActivity {
 				Intent intent = new Intent(getApplicationContext(), EventDetailsActivity.class);
 
 				Event event = (Event) adapter.getItem(position);
-				intent.putExtras(event.parcel());
+				intent.putExtras(EventUtils.parcel(event));
 
 				startActivity(intent);
 			}
 		});
 
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main_menu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.update_schedule:
+			return true;
+		case R.id.credits:
+			final Dialog dialog = new Dialog(this);
+			dialog.setContentView(R.layout.credits_dialog);
+			dialog.setTitle(R.string.credits);
+			dialog.setOwnerActivity(this);
+
+			((Button) dialog.findViewById(android.R.id.button1)).setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					dialog.dismiss();
+				}
+			});
+
+			dialog.show();
+			return true;
+		default:
+			return super.onContextItemSelected(item);
+		}
 	}
 }

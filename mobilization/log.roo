@@ -5,3 +5,4 @@ project --topLevelPackage org.mobilization.server --projectName mobilization --j
 controller class --class ~.controllers.ScheduleController
 // Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-09-16 18:38:28
 // Spring Roo 1.1.2.RELEASE [rev fbc33bb] log opened at 2011-09-16 18:42:08
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-09-16 20:28:35

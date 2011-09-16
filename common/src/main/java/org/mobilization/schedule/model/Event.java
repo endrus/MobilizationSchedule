@@ -1,11 +1,6 @@
 package org.mobilization.schedule.model;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import org.mobilization.schedule.EventDetailsActivity;
-
-import android.os.Bundle;
 
 public class Event {
 
@@ -18,8 +13,6 @@ public class Event {
 	private Date from;
 
 	private Date to;
-
-	private static final SimpleDateFormat timeFormatter = new SimpleDateFormat("HH:mm");
 
 	public Event() {
 	}
@@ -40,16 +33,6 @@ public class Event {
 		this.description = description;
 		this.from = from;
 		this.to = to;
-	}
-
-	public Bundle parcel() {
-		Bundle b = new Bundle();
-		b.putString(EventDetailsActivity.TITLE, title);
-		b.putString(EventDetailsActivity.SPEAKER, speaker);
-		b.putString(EventDetailsActivity.FROM, timeFormatter.format(from));
-		b.putString(EventDetailsActivity.TO, timeFormatter.format(to));
-		b.putString(EventDetailsActivity.DETAILS, description);
-		return b;
 	}
 
 	public String getTitle() {
