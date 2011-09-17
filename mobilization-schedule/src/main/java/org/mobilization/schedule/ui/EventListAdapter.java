@@ -100,4 +100,9 @@ public class EventListAdapter extends BaseAdapter {
 		this.isBigHallCurrent = isBigHallCurrent;
 	}
 
+	public void setEvents(Event[][] fetchEvents) {
+		setBigHallEvents(fetchEvents[0]);
+		setSmallHallEvents(fetchEvents[1]);
+	}
+
 }

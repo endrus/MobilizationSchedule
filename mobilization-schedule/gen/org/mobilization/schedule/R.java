@@ -51,6 +51,8 @@ public final class R {
         public static final int credits=0x7f050004;
         public static final int no_schedule=0x7f050005;
         public static final int small_hall=0x7f050000;
+        public static final int successfully_updated=0x7f050006;
+        public static final int update_failed=0x7f050007;
         public static final int update_schedule=0x7f050003;
     }
     public static final class style {

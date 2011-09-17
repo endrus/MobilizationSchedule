@@ -18,6 +18,7 @@ public class EventUtils {
 		b.putString(EventDetailsActivity.FROM, timeFormatter.format(evt.getFrom()));
 		b.putString(EventDetailsActivity.TO, timeFormatter.format(evt.getTo()));
 		b.putString(EventDetailsActivity.DETAILS, evt.getDescription());
+		b.putInt(EventDetailsActivity.HALL_ID, evt.getHallId());
 		return b;
 	}
 

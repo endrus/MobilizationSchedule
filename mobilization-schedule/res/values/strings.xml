@@ -9,6 +9,8 @@
 
 	<string name="no_schedule">There is no schedule yet, please update</string>
 
+	<string name="successfully_updated">Successfully updated</string>
+	<string name="update_failed">Update FAILED:</string>
 
 	<string-array name="array">
 		<item>string1</item>

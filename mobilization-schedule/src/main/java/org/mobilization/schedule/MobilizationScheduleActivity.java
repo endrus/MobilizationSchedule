@@ -1,5 +1,6 @@
 package org.mobilization.schedule;
 
+import org.mobilization.schedule.http.ScheduleUpdater;
 import org.mobilization.schedule.model.Event;
 import org.mobilization.schedule.ui.EventListAdapter;
 import org.mobilization.schedule.utils.EventUtils;
@@ -34,15 +35,13 @@ public class MobilizationScheduleActivity extends ListActivity {
 
 		this.setContentView(R.layout.main);
 
-		Event[] big = new Event[] { new Event("My Title 1", "Not only Me"), new Event("My Title 2", "Not only Me"),
-				new Event("My Title 3", "Not only Me"), new Event("My Title 4", "Not only Me"), new Event("My Title 5", "Not only Me"),
-				new Event("My Title 6", "Not only Me"), new Event("My Title 7", "Not only Me"), new Event("My Title 8", "Not only Me"),
-				new Event("My Title 9", "Not only Me") };
+		Event[] big = new Event[] { new Event("My Title 1", "Not only Me"), new Event("My Title 2", "Not only Me"), new Event("My Title 3", "Not only Me"),
+				new Event("My Title 4", "Not only Me"), new Event("My Title 5", "Not only Me"), new Event("My Title 6", "Not only Me"),
+				new Event("My Title 7", "Not only Me"), new Event("My Title 8", "Not only Me"), new Event("My Title 9", "Not only Me") };
 
 		Event[] small = new Event[] { new Event("My Small Title 1", "Me & c.o."), new Event("My Small Title 2", "Me & c.o."),
-				new Event("My Small Title 3", "Me & c.o."), new Event("My Small Title 4", "Me & c.o."),
-				new Event("My Small Title 5", "Me & c.o."), new Event("My Small Title 6", "Me & c.o."),
-				new Event("My Small Title 7", "Me & c.o."), new Event("My Small Title 8", "Me & c.o."),
+				new Event("My Small Title 3", "Me & c.o."), new Event("My Small Title 4", "Me & c.o."), new Event("My Small Title 5", "Me & c.o."),
+				new Event("My Small Title 6", "Me & c.o."), new Event("My Small Title 7", "Me & c.o."), new Event("My Small Title 8", "Me & c.o."),
 				new Event("My Small Title 9", "Me & c.o.") };
 
 		final EventListAdapter adapter = eventListAdapter = new EventListAdapter(getApplicationContext(), small, big);
@@ -110,6 +109,8 @@ public class MobilizationScheduleActivity extends ListActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.update_schedule:
+			ScheduleUpdater scheduleUpdater = new ScheduleUpdater(this, eventListAdapter);
+			scheduleUpdater.execute();
 			return true;
 		case R.id.credits:
 			final Dialog dialog = new Dialog(this);

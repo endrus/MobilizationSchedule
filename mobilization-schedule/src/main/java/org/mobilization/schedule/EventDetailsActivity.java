@@ -15,6 +15,7 @@ public class EventDetailsActivity extends Activity {
 	public static final String FROM = "FROM";
 	public static final String TO = "TO";
 	public static final String TITLE = "TITLE";
+	public static final String HALL_ID = "HALL_ID";
 
 	public static final String EVENT = "EVENT_DETAILS";
 

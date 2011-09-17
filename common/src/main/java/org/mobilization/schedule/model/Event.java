@@ -14,6 +14,8 @@ public class Event {
 
 	private Date to;
 
+	private int hallId;
+
 	public Event() {
 	}
 
@@ -73,5 +75,13 @@ public class Event {
 
 	public void setTo(Date to) {
 		this.to = to;
+	}
+
+	public int getHallId() {
+		return hallId;
+	}
+
+	public void setHallId(int hallId) {
+		this.hallId = hallId;
 	}
 }
