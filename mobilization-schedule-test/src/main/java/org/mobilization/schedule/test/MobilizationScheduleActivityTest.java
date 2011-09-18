@@ -10,6 +10,8 @@ import org.mobilization.schedule.MobilizationScheduleActivity;
 import org.mobilization.schedule.http.RestClient;
 import org.mobilization.schedule.http.ScheduleUpdater;
 
+import android.app.KeyguardManager;
+import android.app.KeyguardManager.KeyguardLock;
 import android.content.Context;
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.KeyEvent;
@@ -29,6 +31,10 @@ public class MobilizationScheduleActivityTest extends ActivityInstrumentationTes
 	protected void setUp() throws Exception {
 		super.setUp();
 		updated = false;
+
+		KeyguardManager mKeyGuardManager = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
+		KeyguardLock mLock = mKeyGuardManager.newKeyguardLock("activity_classname");
+		mLock.disableKeyguard();
 
 		final Context context = getInstrumentation().getContext();
 		final MobilizationScheduleActivity activity = getActivity();
