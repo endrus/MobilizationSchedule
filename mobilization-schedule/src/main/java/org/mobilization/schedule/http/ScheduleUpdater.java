@@ -38,32 +38,44 @@ public class ScheduleUpdater extends AsyncTask<Void, Void, Integer> {
 		} catch (ClientProtocolException e) {
 			Log.e("MobilizationSchedule", "Failed to download new schedule", e);
 			errorMessage = e.getMessage();
-			return R.string.update_failed;
+			return 1;
 		} catch (SocketException e) {
 			Log.e("MobilizationSchedule", "Failed to download new schedule", e);
 			errorMessage = e.getMessage();
-			return R.string.update_failed;
+			return 1;
 		} catch (MalformedURLException e) {
 			Log.e("MobilizationSchedule", "Failed to download new schedule", e);
 			errorMessage = e.getMessage();
-			return R.string.update_failed;
+			return 1;
 		} catch (IOException e) {
 			Log.e("MobilizationSchedule", "Failed to download new schedule", e);
 			errorMessage = e.getMessage();
-			return R.string.update_failed;
+			return 1;
 		}
-		return R.string.successfully_updated;
+		return 0;
 	}
 
 	@Override
 	protected void onPostExecute(Integer result) {
 		super.onPostExecute(result);
 		Log.i("MobilizationScheduler", "Checking if update was successfull result:|" + result + "| reference:|" + R.string.successfully_updated + "|");
-		if (R.string.successfully_updated == result) {
-			Toast.makeText(context, context.getText(result), Toast.LENGTH_LONG).show();
-			eventListAdapter.setEvents(events);
+		if (0 == result) {
+			Toast.makeText(context, context.getText(R.string.successfully_updated), Toast.LENGTH_LONG).show();
+			updateEvents();
 		} else {
 			Toast.makeText(context, context.getText(R.string.update_failed) + errorMessage, Toast.LENGTH_LONG).show();
 		}
+	}
+
+	protected void updateEvents() {
+		eventListAdapter.setEvents(events);
+	}
+
+	public Communication getCommunication() {
+		return communication;
+	}
+
+	public void setCommunication(Communication communication) {
+		this.communication = communication;
 	}
 }

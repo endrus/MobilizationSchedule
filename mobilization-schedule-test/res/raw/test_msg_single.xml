@@ -1,0 +1,18 @@
+<list>
+  <org.mobilization.schedule.model.Event>
+    <title>My first presentation</title>
+    <speaker>MS Guest</speaker>
+    <description>Just a sample desc</description>
+    <from>2011-11-22 09:00:00.000 UTC</from>
+    <to>2011-11-22 11:00:00.000 UTC</to>
+    <hallId>1</hallId>
+  </org.mobilization.schedule.model.Event>
+  <org.mobilization.schedule.model.Event>
+    <title>My second presentation</title>
+    <speaker>MS Guest 2</speaker>
+    <description>Just a sample desc, or not</description>
+    <from>2011-11-22 17:00:00.000 UTC</from>
+    <to>2011-11-22 19:00:00.000 UTC</to>
+    <hallId>0</hallId>
+  </org.mobilization.schedule.model.Event>
+</list>

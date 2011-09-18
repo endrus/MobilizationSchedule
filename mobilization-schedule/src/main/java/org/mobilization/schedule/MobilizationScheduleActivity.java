@@ -24,6 +24,7 @@ import android.widget.ListView;
 public class MobilizationScheduleActivity extends ListActivity {
 
 	private EventListAdapter eventListAdapter;
+	private ScheduleUpdater scheduleUpdater;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -95,6 +96,7 @@ public class MobilizationScheduleActivity extends ListActivity {
 			}
 		});
 
+		this.scheduleUpdater = new ScheduleUpdater(this, eventListAdapter);
 	}
 
 	@Override
@@ -109,7 +111,6 @@ public class MobilizationScheduleActivity extends ListActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.update_schedule:
-			ScheduleUpdater scheduleUpdater = new ScheduleUpdater(this, eventListAdapter);
 			scheduleUpdater.execute();
 			return true;
 		case R.id.credits:
@@ -130,5 +131,21 @@ public class MobilizationScheduleActivity extends ListActivity {
 		default:
 			return super.onContextItemSelected(item);
 		}
+	}
+
+	public ScheduleUpdater getScheduleUpdater() {
+		return scheduleUpdater;
+	}
+
+	public void setScheduleUpdater(ScheduleUpdater scheduleUpdater) {
+		this.scheduleUpdater = scheduleUpdater;
+	}
+
+	public EventListAdapter getEventListAdapter() {
+		return eventListAdapter;
+	}
+
+	public void setEventListAdapter(EventListAdapter eventListAdapter) {
+		this.eventListAdapter = eventListAdapter;
 	}
 }
