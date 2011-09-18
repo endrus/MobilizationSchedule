@@ -22,7 +22,9 @@ public class Communication {
 	}
 
 	public Event[][] fetchEvents() throws ClientProtocolException, SocketException, MalformedURLException, IOException {
-		InputStream is = restClient.executeRequest(new URL("http://192.168.1.105:8080/mobilization/schedule"));
+		InputStream is = restClient.executeRequest(new URL("http://mobilization.uuid.pl/schedule"));
+		// InputStream is = restClient.executeRequest(new
+		// URL("http://192.168.1.105:8080/mobilization/schedule"));
 		XStream xs = new XStream();
 		Object o = xs.fromXML(is);
 		if (o instanceof List<?>) {
