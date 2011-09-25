@@ -1,15 +1,23 @@
 package org.mobilization.schedule;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.mobilization.schedule.http.Communication;
 import org.mobilization.schedule.http.ScheduleUpdater;
 import org.mobilization.schedule.model.Event;
 import org.mobilization.schedule.ui.EventListAdapter;
 import org.mobilization.schedule.utils.EventUtils;
+import org.mobilization.schedule.utils.StorageUtils;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,6 +32,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 public class MobilizationScheduleActivity extends ListActivity {
+
+	private static final String MOBILIZATION_SCHEDULE = "MobilizationSchedule";
 
 	private EventListAdapter eventListAdapter;
 	private ScheduleUpdater scheduleUpdater;
@@ -102,6 +112,29 @@ public class MobilizationScheduleActivity extends ListActivity {
 				scheduleUpdater.execute();
 			}
 		});
+
+		if (StorageUtils.isExternalStorageAvailable()) {
+			File xmlScheduleFile = StorageUtils.getScheduleCacheFile();
+			Log.d(MOBILIZATION_SCHEDULE, "Looking for file: " + xmlScheduleFile.getAbsolutePath());
+
+			if (xmlScheduleFile.exists()) {
+				Log.i(MOBILIZATION_SCHEDULE, "Loading schedule from file: " + xmlScheduleFile.getAbsolutePath());
+				Communication c = new Communication(this);
+				try {
+					FileInputStream is = new FileInputStream(xmlScheduleFile);
+					adapter.setEvents(c.extractEvents(is));
+					try {
+						is.close();
+					} catch (IOException e) {
+						Log.wtf(MOBILIZATION_SCHEDULE, "Failed to close input stream...");
+					}
+				} catch (FileNotFoundException e) {
+					Log.e(MOBILIZATION_SCHEDULE, "Couldn't find file that was supposed to exist...", e);
+				}
+			} else {
+				Log.i(MOBILIZATION_SCHEDULE, "Schedule file doesn't exits");
+			}
+		}
 	}
 
 	@Override

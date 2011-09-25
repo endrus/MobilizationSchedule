@@ -1,5 +1,8 @@
 package org.mobilization.schedule.http;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -10,13 +13,16 @@ import java.util.List;
 
 import org.apache.http.client.ClientProtocolException;
 import org.mobilization.schedule.model.Event;
+import org.mobilization.schedule.utils.StorageUtils;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.thoughtworks.xstream.XStream;
 
 public class Communication {
 
+	private static final String TAG = "MobilizationSchedule-Communication";
 	private RestClient restClient;
 	private Context context;
 
@@ -27,11 +33,34 @@ public class Communication {
 
 	public Event[][] fetchEvents() throws ClientProtocolException, SocketException, MalformedURLException, IOException {
 		InputStream is = restClient.executeRequest(new URL("http://mobilization.uuid.pl/schedule"));
+
+		File f = StorageUtils.getScheduleCacheFile();
+		if (f.exists()) {
+			Log.i(TAG, "Cache file already existed, removing");
+			if (!f.delete()) {
+				Log.e(TAG, "Failed to delete file: " + f.getAbsolutePath());
+			}
+		}
+		FileOutputStream fos = new FileOutputStream(f);
+		byte[] b = new byte[1024];
+		int len = -1;
+		while ((len = is.read(b)) > 0) {
+			fos.write(b, 0, len);
+		}
+		fos.close();
+		is.close();
+		Log.i(TAG, "File " + f.getAbsolutePath() + " created.");
+
 		// InputStream is = restClient.executeRequest(new
 		// URL("http://192.168.1.105:8080/mobilization/schedule"));
-		XStream xs = new XStream();
+		FileInputStream is2 = new FileInputStream(f);
+		Event[][] extractedEvents = extractEvents(is2);
+		is2.close();
+		return extractedEvents;
+	}
 
-		// File dir = context.getExternalFilesDir()
+	public Event[][] extractEvents(InputStream is) {
+		XStream xs = new XStream();
 
 		Object o = xs.fromXML(is);
 		if (o instanceof List<?>) {

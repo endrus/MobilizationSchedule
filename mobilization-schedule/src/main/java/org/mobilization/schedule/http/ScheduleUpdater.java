@@ -66,7 +66,6 @@ public class ScheduleUpdater extends AsyncTask<Void, Void, Integer> {
 		dialog.setMessage(context.getText(R.string.updating_please_wait));
 		dialog.setIndeterminate(true);
 		dialog.show();
-
 	}
 
 	@Override
