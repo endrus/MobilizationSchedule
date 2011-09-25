@@ -32,7 +32,7 @@ public class MobilizationScheduleActivityTest extends ActivityInstrumentationTes
 		super.setUp();
 		updated = false;
 
-		KeyguardManager mKeyGuardManager = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
+		KeyguardManager mKeyGuardManager = (KeyguardManager) getActivity().getSystemService(Context.KEYGUARD_SERVICE);
 		KeyguardLock mLock = mKeyGuardManager.newKeyguardLock("activity_classname");
 		mLock.disableKeyguard();
 
