@@ -14,7 +14,6 @@
 		<artifactId>mobilization-aggregator</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<groupId>org.mobilization</groupId>
 	<artifactId>mobilization-schedule-app</artifactId>
 	<packaging>apk</packaging>
 	<name>Mobilization Schedule - App</name>
