@@ -48,7 +48,7 @@ public class EventListAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		Event evt = events[position];
 		View v = layoutInflater.inflate(R.layout.event_row, null);
-		ImageView icon = (ImageView) v.findViewById(android.R.id.icon);
+		ImageView icon = (ImageView) v.findViewById(R.drawable.logo_50);
 		TextView title = (TextView) v.findViewById(android.R.id.text1);
 		title.setText(evt.getTitle());
 		TextView speaker = (TextView) v.findViewById(android.R.id.text2);

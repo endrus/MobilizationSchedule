@@ -11,13 +11,17 @@ import java.util.List;
 import org.apache.http.client.ClientProtocolException;
 import org.mobilization.schedule.model.Event;
 
+import android.content.Context;
+
 import com.thoughtworks.xstream.XStream;
 
 public class Communication {
 
 	private RestClient restClient;
+	private Context context;
 
-	public Communication() {
+	public Communication(Context context) {
+		this.context = context;
 		restClient = new RestClient();
 	}
 
@@ -26,6 +30,9 @@ public class Communication {
 		// InputStream is = restClient.executeRequest(new
 		// URL("http://192.168.1.105:8080/mobilization/schedule"));
 		XStream xs = new XStream();
+
+		// File dir = context.getExternalFilesDir()
+
 		Object o = xs.fromXML(is);
 		if (o instanceof List<?>) {
 			@SuppressWarnings("unchecked")

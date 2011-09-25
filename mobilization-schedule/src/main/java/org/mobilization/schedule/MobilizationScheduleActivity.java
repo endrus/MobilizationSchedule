@@ -5,6 +5,7 @@ import org.mobilization.schedule.model.Event;
 import org.mobilization.schedule.ui.EventListAdapter;
 import org.mobilization.schedule.utils.EventUtils;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Intent;
@@ -19,6 +20,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 public class MobilizationScheduleActivity extends ListActivity {
@@ -36,14 +38,8 @@ public class MobilizationScheduleActivity extends ListActivity {
 
 		this.setContentView(R.layout.main);
 
-		Event[] big = new Event[] { new Event("My Title 1", "Not only Me"), new Event("My Title 2", "Not only Me"), new Event("My Title 3", "Not only Me"),
-				new Event("My Title 4", "Not only Me"), new Event("My Title 5", "Not only Me"), new Event("My Title 6", "Not only Me"),
-				new Event("My Title 7", "Not only Me"), new Event("My Title 8", "Not only Me"), new Event("My Title 9", "Not only Me") };
-
-		Event[] small = new Event[] { new Event("My Small Title 1", "Me & c.o."), new Event("My Small Title 2", "Me & c.o."),
-				new Event("My Small Title 3", "Me & c.o."), new Event("My Small Title 4", "Me & c.o."), new Event("My Small Title 5", "Me & c.o."),
-				new Event("My Small Title 6", "Me & c.o."), new Event("My Small Title 7", "Me & c.o."), new Event("My Small Title 8", "Me & c.o."),
-				new Event("My Small Title 9", "Me & c.o.") };
+		Event[] big = new Event[] {};
+		Event[] small = new Event[] {};
 
 		final EventListAdapter adapter = eventListAdapter = new EventListAdapter(getApplicationContext(), small, big);
 		this.setListAdapter(adapter);
@@ -96,7 +92,16 @@ public class MobilizationScheduleActivity extends ListActivity {
 			}
 		});
 
-		this.scheduleUpdater = new ScheduleUpdater(this, eventListAdapter);
+		// this.scheduleUpdater = new ScheduleUpdater(this, eventListAdapter);
+		final Activity me = this;
+		LinearLayout ll = (LinearLayout) findViewById(android.R.id.empty);
+		ll.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				scheduleUpdater = new ScheduleUpdater(me, eventListAdapter);
+				scheduleUpdater.execute();
+			}
+		});
 	}
 
 	@Override
@@ -111,6 +116,7 @@ public class MobilizationScheduleActivity extends ListActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.update_schedule:
+			scheduleUpdater = new ScheduleUpdater(this, eventListAdapter);
 			scheduleUpdater.execute();
 			return true;
 		case R.id.credits:
