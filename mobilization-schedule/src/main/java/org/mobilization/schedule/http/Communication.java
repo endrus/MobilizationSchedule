@@ -2,12 +2,15 @@ package org.mobilization.schedule.http;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.SocketException;
 import java.net.URL;
+import java.nio.channels.FileLockInterruptionException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,22 +44,62 @@ public class Communication {
 				Log.e(TAG, "Failed to delete file: " + f.getAbsolutePath());
 			}
 		}
+		InputStream is2 = null;
+		try {
+			copyStream(is, f);
+			is2 = new FileInputStream(f);
+		} catch (FileNotFoundException e) {
+			is2 = handleFileError(is, e);
+		} catch (Exception e) {
+			is2 = handleFileError(is, e);
+		}
+		// InputStream is = restClient.executeRequest(new
+		// URL("http://192.168.1.105:8080/mobilization/schedule"));
+		Event[][] extractedEvents = extractEvents(is2);
+		is2.close();
+		return extractedEvents;
+	}
+	/**
+	 * When some
+	 * @param is
+	 * @return
+	 */
+	private InputStream handleFileError(InputStream is, Exception e) {
+		Log.e(TAG, "Error when read cache file", e);
+		return is;
+	}
+
+	private void copyStream(InputStream is, File f)
+			throws FileNotFoundException, IOException {
 		FileOutputStream fos = new FileOutputStream(f);
 		byte[] b = new byte[1024];
 		int len = -1;
 		while ((len = is.read(b)) > 0) {
 			fos.write(b, 0, len);
 		}
-		fos.close();
-		is.close();
+		closeOutputStream(fos);
+		closeInputStream(is);
 		Log.i(TAG, "File " + f.getAbsolutePath() + " created.");
+	}
 
-		// InputStream is = restClient.executeRequest(new
-		// URL("http://192.168.1.105:8080/mobilization/schedule"));
-		FileInputStream is2 = new FileInputStream(f);
-		Event[][] extractedEvents = extractEvents(is2);
-		is2.close();
-		return extractedEvents;
+	private void closeInputStream(InputStream is) {
+		try{
+			is.close();
+		}catch (IOException e){
+			Log.e(TAG, "Problem with close InputStream", e);
+		}finally{
+			is = null;			
+		}
+	}
+
+	private void closeOutputStream(OutputStream fos) {
+		try{
+			fos.close();
+		}catch (IOException e){
+			Log.e(TAG, "Problem with close OutputStream", e);
+		}finally{
+			fos = null;
+		}
 	}
 
 	public Event[][] extractEvents(InputStream is) {
