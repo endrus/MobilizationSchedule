@@ -9,6 +9,7 @@ import org.mobilization.schedule.R;
 import org.mobilization.schedule.model.Event;
 import org.mobilization.schedule.ui.EventListAdapter;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -22,12 +23,13 @@ public class ScheduleUpdater extends AsyncTask<Void, Void, Integer> {
 
 	private Event[][] events;
 	private String errorMessage;
+	private ProgressDialog dialog;
 
 	public ScheduleUpdater(Context context, EventListAdapter adapter) {
 		super();
 		this.context = context;
 		this.eventListAdapter = adapter;
-		this.communication = new Communication();
+		this.communication = new Communication(context);
 	}
 
 	@Override
@@ -56,8 +58,20 @@ public class ScheduleUpdater extends AsyncTask<Void, Void, Integer> {
 	}
 
 	@Override
+	protected void onPreExecute() {
+		super.onPreExecute();
+
+		dialog = new ProgressDialog(context);
+		dialog.setTitle(R.string.updating);
+		dialog.setMessage(context.getText(R.string.updating_please_wait));
+		dialog.setIndeterminate(true);
+		dialog.show();
+	}
+
+	@Override
 	protected void onPostExecute(Integer result) {
 		super.onPostExecute(result);
+		dialog.dismiss();
 		Log.i("MobilizationScheduler", "Checking if update was successfull result:|" + result + "| reference:|" + R.string.successfully_updated + "|");
 		if (0 == result) {
 			Toast.makeText(context, context.getText(R.string.successfully_updated), Toast.LENGTH_LONG).show();

@@ -2,35 +2,22 @@
 <resources>
 	<string name="small_hall">Mała Sala</string>
 	<string name="big_hall">Duża Sala</string>
-	<string name="app_name">MobilizationSchedule</string>
+
+	<string name="app_name">Mobilization Schedule</string>
+	<string name="schedule_details">Details</string>
+	<string name="speeker_details">Speeker Details</string>
 	
 	<string name="update_schedule">Update schedule</string>
 	<string name="credits">Credits</string>
 
-	<string name="no_schedule">There is no schedule yet, please update</string>
+	<string name="no_schedule">There is NO schedule</string>
+	<string name="please_update">Please click "Menu" -> "Update schedule" \nor tap here</string>
 
 	<string name="successfully_updated">Successfully updated</string>
 	<string name="update_failed">Update FAILED:</string>
 
-	<string-array name="array">
-		<item>string1</item>
-		<item>string2</item>
-		<item>string3</item>
-		<item>string3</item>
-		<item>string3</item>
-		<item>string3</item>
-		<item>string3</item>
-		<item>string3</item>
-		<item>string3</item>
-		<item>string3</item>
-		<item>string3</item>
-		<item>string3</item>
-		<item>string3</item>
-		<item>string3</item>
-		<item>string3</item>
-		<item>string3</item>
-		<item>string3</item>
-		<item>string3</item>
-		<item>string3</item>
-	</string-array>
+
+
+	<string name="updating">Updating</string>
+	<string name="updating_please_wait">Updating, please wait...</string>
 </resources>
