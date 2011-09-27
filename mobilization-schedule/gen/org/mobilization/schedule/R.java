@@ -20,6 +20,8 @@ public final class R {
         public static final int logo=0x7f020002;
         public static final int logo_150=0x7f020003;
         public static final int logo_50=0x7f020004;
+        public static final int quicklink=0x7f020005;
+        public static final int quicklink_orginal=0x7f020006;
     }
     public static final class id {
         public static final int big_hall_button=0x7f080008;
