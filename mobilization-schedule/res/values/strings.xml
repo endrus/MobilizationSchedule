@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="small_hall">Mała Sala</string>
-	<string name="big_hall">Duża Sala</string>
+	<string name="small_hall">Small Hall</string>
+	<string name="big_hall">Big Hall</string>
 
 	<string name="app_name">Mobilization Schedule</string>
 	<string name="schedule_details">Details</string>
-	<string name="speeker_details">Speeker Details</string>
+	<string name="speeker_details">Speaker Details</string>
 	
 	<string name="update_schedule">Update schedule</string>
 	<string name="credits">Credits</string>
@@ -16,7 +16,7 @@
 	<string name="successfully_updated">Successfully updated</string>
 	<string name="update_failed">Update FAILED:</string>
 
-
+	<string name="where">Show me where</string>
 
 	<string name="updating">Updating</string>
 	<string name="updating_please_wait">Updating, please wait...</string>

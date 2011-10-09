@@ -11,6 +11,13 @@ public class EventUtils {
 
 	private static final SimpleDateFormat timeFormatter = new SimpleDateFormat("HH:mm");
 
+	public static String getHours(Event evt) {
+		StringBuffer sb = new StringBuffer(timeFormatter.format(evt.getFrom()));
+		sb.append("-");
+		sb.append(timeFormatter.format(evt.getTo()));
+		return sb.toString();
+	}
+
 	public static Bundle parcel(Event evt) {
 		Bundle b = new Bundle();
 		b.putString(EventDetailsActivity.TITLE, evt.getTitle());

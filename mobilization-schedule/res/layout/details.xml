@@ -9,7 +9,7 @@
 		android:layout_marginBottom="27dip" android:layout_marginTop="10dip" android:paddingTop="10dip" >
 		<TextView android:layout_height="wrap_content" style="@android:style/TextAppearance.Large.Inverse"
 			android:layout_width="fill_parent" android:id="@+id/when" android:text="TextView"
-			android:gravity="center_horizontal"
+			android:gravity="center_horizontal" android:textSize="35dip"
 		/>
 		<TextView android:layout_height="wrap_content" style="@android:style/TextAppearance.Medium.Inverse"
 			android:layout_width="fill_parent" android:id="@android:id/title" android:text="TextView" android:layout_marginLeft="5dip"

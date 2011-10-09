@@ -2,6 +2,7 @@ package org.mobilization.schedule.ui;
 
 import org.mobilization.schedule.R;
 import org.mobilization.schedule.model.Event;
+import org.mobilization.schedule.utils.EventUtils;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -54,6 +55,8 @@ public class EventListAdapter extends BaseAdapter {
 		title.setText(evt.getTitle());
 		TextView speaker = (TextView) v.findViewById(android.R.id.text2);
 		speaker.setText(evt.getSpeaker());
+		TextView hours = (TextView) v.findViewById(R.id.hours);
+		hours.setText(EventUtils.getHours(evt));
 		return v;
 	}
 

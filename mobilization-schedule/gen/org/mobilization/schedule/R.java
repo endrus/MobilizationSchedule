@@ -24,20 +24,21 @@ public final class R {
         public static final int quicklink_orginal=0x7f020006;
     }
     public static final class id {
-        public static final int big_hall_button=0x7f080008;
-        public static final int credits=0x7f08000d;
+        public static final int big_hall_button=0x7f080009;
         public static final int details=0x7f080006;
-        public static final int imageView1=0x7f08000b;
+        public static final int hours=0x7f080007;
+        public static final int imageView1=0x7f08000c;
         public static final int layout_root=0x7f080000;
         public static final int linearLayout1=0x7f080003;
         public static final int logo=0x7f080002;
-        public static final int notify=0x7f08000a;
-        public static final int small_hall_button=0x7f080009;
+        public static final int notify=0x7f08000b;
+        public static final int small_hall_button=0x7f08000a;
         public static final int speaker=0x7f080005;
-        public static final int tableLayout1=0x7f080007;
+        public static final int tableLayout1=0x7f080008;
         public static final int textView1=0x7f080001;
-        public static final int update_schedule=0x7f08000c;
+        public static final int update_schedule=0x7f08000d;
         public static final int when=0x7f080004;
+        public static final int where=0x7f08000e;
     }
     public static final class layout {
         public static final int credits_dialog=0x7f030000;
@@ -61,8 +62,9 @@ public final class R {
         public static final int successfully_updated=0x7f050009;
         public static final int update_failed=0x7f05000a;
         public static final int update_schedule=0x7f050005;
-        public static final int updating=0x7f05000b;
-        public static final int updating_please_wait=0x7f05000c;
+        public static final int updating=0x7f05000c;
+        public static final int updating_please_wait=0x7f05000d;
+        public static final int where=0x7f05000b;
     }
     public static final class style {
         public static final int button_pressed=0x7f060000;
