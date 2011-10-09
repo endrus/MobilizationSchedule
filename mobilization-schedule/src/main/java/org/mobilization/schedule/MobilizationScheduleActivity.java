@@ -60,14 +60,15 @@ public class MobilizationScheduleActivity extends ListActivity {
 		small_hall_button.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				big_hall_button.setBackgroundColor(R.color.bg);
 				big_hall_button.setTextAppearance(getApplicationContext(), R.style.button_releassed);
 
-				small_hall_button.setBackgroundColor(R.color.bg);
 				small_hall_button.setTextAppearance(getApplicationContext(), R.style.button_pressed);
 
-				big_hall_button.refreshDrawableState();
-				small_hall_button.refreshDrawableState();
+				small_hall_button.setEnabled(false);
+				big_hall_button.setEnabled(true);
+
+				big_hall_button.invalidate();
+				small_hall_button.invalidate();
 
 				adapter.switchToSmallHall();
 			}
@@ -76,14 +77,15 @@ public class MobilizationScheduleActivity extends ListActivity {
 		big_hall_button.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				small_hall_button.setBackgroundColor(R.color.bg);
 				small_hall_button.setTextAppearance(getApplicationContext(), R.style.button_releassed);
 
-				big_hall_button.setBackgroundColor(R.color.bg);
 				big_hall_button.setTextAppearance(getApplicationContext(), R.style.button_pressed);
 
-				big_hall_button.refreshDrawableState();
-				small_hall_button.refreshDrawableState();
+				small_hall_button.setEnabled(true);
+				big_hall_button.setEnabled(false);
+
+				big_hall_button.invalidate();
+				small_hall_button.invalidate();
 
 				adapter.switchToBigHall();
 			}
