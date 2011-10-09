@@ -9,9 +9,15 @@ import org.mobilization.schedule.R;
 import org.mobilization.schedule.model.Event;
 import org.mobilization.schedule.ui.EventListAdapter;
 
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -39,20 +45,21 @@ public class ScheduleUpdater extends AsyncTask<Void, Void, Integer> {
 			events = communication.fetchEvents();
 		} catch (ClientProtocolException e) {
 			Log.e("MobilizationSchedule", "Failed to download new schedule", e);
-			errorMessage = e.getMessage();
+			errorMessage = context.getString(R.string.couldnt_connect_to_host);// e.getMessage();
 			return 1;
 		} catch (SocketException e) {
 			Log.e("MobilizationSchedule", "Failed to download new schedule", e);
-			errorMessage = e.getMessage();
-			return 1;
+			errorMessage = context.getString(R.string.couldnt_connect_to_host);// e.getMessage();
+			return 2;
 		} catch (MalformedURLException e) {
 			Log.e("MobilizationSchedule", "Failed to download new schedule", e);
-			errorMessage = e.getMessage();
-			return 1;
+			errorMessage = context.getString(R.string.couldnt_connect_to_host);// e.getMessage();
+			return 3;
 		} catch (IOException e) {
 			Log.e("MobilizationSchedule", "Failed to download new schedule", e);
-			errorMessage = e.getMessage();
-			return 1;
+			// errorMessage = e.getMessage();
+			errorMessage = context.getString(R.string.couldnt_connect_to_host);// e.getMessage();
+			return 4;
 		}
 		return 0;
 	}
@@ -74,10 +81,27 @@ public class ScheduleUpdater extends AsyncTask<Void, Void, Integer> {
 		dialog.dismiss();
 		Log.i("MobilizationScheduler", "Checking if update was successfull result:|" + result + "| reference:|" + R.string.successfully_updated + "|");
 		if (0 == result) {
-			Toast.makeText(context, context.getText(R.string.successfully_updated), Toast.LENGTH_LONG).show();
+			Toast.makeText(context, context.getText(R.string.successfully_updated), Toast.LENGTH_SHORT).show();
 			updateEvents();
 		} else {
-			Toast.makeText(context, context.getText(R.string.update_failed) + errorMessage, Toast.LENGTH_LONG).show();
+			final Builder b = new AlertDialog.Builder(context).setMessage(errorMessage);
+			b.setTitle(R.string.update_failed_title);
+			b.setIcon(android.R.drawable.ic_dialog_alert);
+			b.setPositiveButton(android.R.string.ok, new OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.dismiss();
+				}
+			});
+			b.setNegativeButton(R.string.settings, new OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.dismiss();
+					context.startActivity(new Intent(Settings.ACTION_WIRELESS_SETTINGS));
+				}
+			});
+
+			b.show();
 		}
 	}
 

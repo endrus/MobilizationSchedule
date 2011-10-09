@@ -61,7 +61,6 @@ public class MobilizationScheduleActivity extends ListActivity {
 			@Override
 			public void onClick(View v) {
 				big_hall_button.setTextAppearance(getApplicationContext(), R.style.button_releassed);
-
 				small_hall_button.setTextAppearance(getApplicationContext(), R.style.button_pressed);
 
 				small_hall_button.setEnabled(false);
@@ -78,7 +77,6 @@ public class MobilizationScheduleActivity extends ListActivity {
 			@Override
 			public void onClick(View v) {
 				small_hall_button.setTextAppearance(getApplicationContext(), R.style.button_releassed);
-
 				big_hall_button.setTextAppearance(getApplicationContext(), R.style.button_pressed);
 
 				small_hall_button.setEnabled(true);

@@ -54,18 +54,21 @@ public final class R {
     public static final class string {
         public static final int app_name=0x7f050002;
         public static final int big_hall=0x7f050001;
+        public static final int couldnt_connect_to_host=0x7f05000f;
         public static final int credits=0x7f050006;
         public static final int no_schedule=0x7f050007;
         public static final int please_update=0x7f050008;
         public static final int schedule_details=0x7f050003;
+        public static final int settings=0x7f050010;
         public static final int small_hall=0x7f050000;
         public static final int speeker_details=0x7f050004;
         public static final int successfully_updated=0x7f050009;
         public static final int update_failed=0x7f05000a;
+        public static final int update_failed_title=0x7f05000b;
         public static final int update_schedule=0x7f050005;
-        public static final int updating=0x7f05000c;
-        public static final int updating_please_wait=0x7f05000d;
-        public static final int where=0x7f05000b;
+        public static final int updating=0x7f05000d;
+        public static final int updating_please_wait=0x7f05000e;
+        public static final int where=0x7f05000c;
     }
     public static final class style {
         public static final int button_pressed=0x7f060000;
