@@ -35,7 +35,7 @@ public class Communication {
 	}
 
 	public Event[][] fetchEvents() throws ClientProtocolException, SocketException, MalformedURLException, IOException {
-		InputStream is = restClient.executeRequest(new URL("http://mobilization.uuid.pl/schedule"));
+		InputStream is = restClient.executeRequest(new URL("http://mobilization.pl/s/schedule.xml"));
 
 		File f = StorageUtils.getScheduleCacheFile();
 		if (f.exists()) {
