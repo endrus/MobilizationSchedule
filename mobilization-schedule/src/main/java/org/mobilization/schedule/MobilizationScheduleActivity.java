@@ -13,6 +13,7 @@ import org.mobilization.schedule.utils.EventUtils;
 import org.mobilization.schedule.utils.StorageUtils;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.net.Uri;
@@ -156,23 +157,21 @@ public class MobilizationScheduleActivity extends ListActivity {
 			String uri = "geo:" + "51.767681,19.485798" + "?q=Aleja+Marszałka+Józefa+Piłsudskiego,+Łódź,+Polska+76";
 			startActivity(new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(uri)));
 			return true;
-			// case R.id.credits:
-			// final Dialog dialog = new Dialog(this);
-			// dialog.setContentView(R.layout.credits_dialog);
-			// dialog.setTitle(R.string.credits);
-			// dialog.setOwnerActivity(this);
-			//
-			// ((Button)
-			// dialog.findViewById(android.R.id.button1)).setOnClickListener(new
-			// OnClickListener() {
-			// @Override
-			// public void onClick(View v) {
-			// dialog.dismiss();
-			// }
-			// });
-			//
-			// dialog.show();
-			// return true;
+		case R.id.credits:
+			final Dialog dialog = new Dialog(this);
+			dialog.setContentView(R.layout.credits_dialog);
+			dialog.setTitle(R.string.credits);
+			dialog.setOwnerActivity(this);
+
+			((Button) dialog.findViewById(android.R.id.button1)).setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					dialog.dismiss();
+				}
+			});
+
+			dialog.show();
+			return true;
 		default:
 			return super.onContextItemSelected(item);
 		}

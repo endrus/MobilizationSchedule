@@ -9,8 +9,11 @@
 
 	<string name="update_schedule">Update schedule</string>
 	<string name="credits">Credits</string>
+	<string name="credits_author">Author:</string>
+	<string name="credits_graphics">Graphics:</string>
+	<string name="credits_tablet_layouts">Tablet layouts:</string>
 
-	<string name="no_schedule">There is NO schedule</string>
+	<string name="no_schedule">There is NO schedule yet</string>
 	<string name="please_update">Please click "Menu" -> "Update schedule" \nor tap here</string>
 
 	<string name="successfully_updated">Successfully updated</string>

@@ -5,8 +5,8 @@
 		android:src="@drawable/icon" />
 	<LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
 		android:orientation="vertical" android:layout_marginLeft="4dip">
-		<TextView android:text="Title is the first" android:id="@android:id/text1" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" style="@android:style/TextAppearance.Large" />
+		<TextView android:text="Title is the first first first first first first" android:id="@android:id/text1" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" style="@android:style/TextAppearance.Large" android:singleLine="true"/>
 
 		<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_gravity="left"  android:layout_height="wrap_content"> 
 			<TextView android:text="Author Autor AA" android:id="@android:id/text2" android:layout_width="wrap_content" android:layout_weight="0.99"
