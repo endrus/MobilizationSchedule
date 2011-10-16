@@ -21,7 +21,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.converters.ConversionException;
+import com.thoughtworks.xstream.XStreamException;
 
 public class Communication {
 
@@ -128,7 +128,7 @@ public class Communication {
 			} else {
 				return new Event[][] { {}, {} };
 			}
-		} catch (ConversionException e) {
+		} catch (XStreamException e) {
 			Log.e(TAG, "Failed to parse schedule inside xml file");
 			return new Event[][] { {}, {} };
 		}
