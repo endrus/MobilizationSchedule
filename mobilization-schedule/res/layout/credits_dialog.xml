@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/layout_root" android:orientation="vertical"
-	android:layout_width="fill_parent" android:layout_height="fill_parent"
-	android:padding="10dp">
-	<TextView
-		android:text="Lucky Number Slevin, renamed for the German/USA DVDs as Lucky # Slevin (and also known as The Wrong Man in Australia), is a 2006 crime thriller film written by Jason Smilovic, directed by Paul McGuigan and starring Josh Hartnett, Bruce Willis, Morgan Freeman, Ben Kingsley, Stanley Tucci, and Lucy Liu. Set in New York City, the plot focuses on the paths of Slevin Kelevra (Hartnett), Lindsey (Liu), two feuding crime lords known as The Boss (Freeman) and The Rabbi (Kingsley), and a mysterious hitman known as Mr. Goodkat (Willis)."
-		android:id="@+id/textView1" android:layout_width="wrap_content"
-		android:layout_height="wrap_content"></TextView>
-	<Button android:text="@android:string/ok" android:id="@android:id/button1"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:layout_gravity="center_horizontal" android:minWidth="150dip" android:layout_marginTop="14dip" android:layout_marginBottom="1dip"></Button>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/layout_root"
+	android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:padding="10dp">
+	<TableLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tableLayout1">
+		<TableRow android:id="@+id/tableRow1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="4dip">
+			<TextView android:text="@string/credits_author" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<TextView android:text="Andrzej Stasiak" android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_marginLeft="3dip" />
+		</TableRow>
+		<TableRow android:id="@+id/tableRow2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="4dip">
+			<TextView android:text="@string/credits_graphics" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<TextView android:text="www.mobilization.pl" android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_marginLeft="3dip" android:autoLink="web" />
+		</TableRow>
+		<TableRow android:id="@+id/tableRow3" android:layout_width="fill_parent" android:layout_height="wrap_content">
+			<TextView android:text="@string/credits_tablet_layouts" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
+			<TextView android:text="Mariusz Saramak" android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_marginLeft="3dip" />
+		</TableRow>
+	</TableLayout>
+
+	<Button android:text="@android:string/ok" android:id="@android:id/button1" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:minWidth="150dip"
+		android:layout_marginTop="14dip" android:layout_marginBottom="1dip"></Button>
 </LinearLayout>
