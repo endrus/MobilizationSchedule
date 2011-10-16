@@ -10,7 +10,6 @@ import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.SocketException;
 import java.net.URL;
-import java.nio.channels.FileLockInterruptionException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +21,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.converters.ConversionException;
 
 public class Communication {
 
@@ -59,8 +59,10 @@ public class Communication {
 		is2.close();
 		return extractedEvents;
 	}
+
 	/**
 	 * When some
+	 * 
 	 * @param is
 	 * @return
 	 */
@@ -69,8 +71,7 @@ public class Communication {
 		return is;
 	}
 
-	private void copyStream(InputStream is, File f)
-			throws FileNotFoundException, IOException {
+	private void copyStream(InputStream is, File f) throws FileNotFoundException, IOException {
 		FileOutputStream fos = new FileOutputStream(f);
 		byte[] b = new byte[1024];
 		int len = -1;
@@ -83,21 +84,21 @@ public class Communication {
 	}
 
 	private void closeInputStream(InputStream is) {
-		try{
+		try {
 			is.close();
-		}catch (IOException e){
+		} catch (IOException e) {
 			Log.e(TAG, "Problem with close InputStream", e);
-		}finally{
-			is = null;			
+		} finally {
+			is = null;
 		}
 	}
 
 	private void closeOutputStream(OutputStream fos) {
-		try{
+		try {
 			fos.close();
-		}catch (IOException e){
+		} catch (IOException e) {
 			Log.e(TAG, "Problem with close OutputStream", e);
-		}finally{
+		} finally {
 			fos = null;
 		}
 	}
@@ -105,24 +106,30 @@ public class Communication {
 	public Event[][] extractEvents(InputStream is) {
 		XStream xs = new XStream();
 
-		Object o = xs.fromXML(is);
-		if (o instanceof List<?>) {
-			@SuppressWarnings("unchecked")
-			List<Event> list = (List<Event>) o;
-			List<Event> bigHall = new ArrayList<Event>(4);
-			List<Event> smallHall = new ArrayList<Event>(4);
+		try {
+			Object o = xs.fromXML(is);
+			if (o instanceof List<?>) {
+				@SuppressWarnings("unchecked")
+				List<Event> list = (List<Event>) o;
+				List<Event> bigHall = new ArrayList<Event>(4);
+				List<Event> smallHall = new ArrayList<Event>(4);
 
-			for (Event event : list) {
-				if (0 == event.getHallId()) {
-					bigHall.add(event);
-				} else if (1 == event.getHallId()) {
-					smallHall.add(event);
+				for (Event event : list) {
+					if (0 == event.getHallId()) {
+						bigHall.add(event);
+					} else if (1 == event.getHallId()) {
+						smallHall.add(event);
+					}
 				}
-			}
 
-			Event[][] events = new Event[][] { bigHall.toArray(new Event[] {}), smallHall.toArray(new Event[] {}) };
-			return events;
-		} else {
+				Event[][] events = new Event[][] { bigHall.toArray(new Event[] {}), smallHall.toArray(new Event[] {}) };
+				return events;
+
+			} else {
+				return new Event[][] { {}, {} };
+			}
+		} catch (ConversionException e) {
+			Log.e(TAG, "Failed to parse schedule inside xml file");
 			return new Event[][] { {}, {} };
 		}
 	}

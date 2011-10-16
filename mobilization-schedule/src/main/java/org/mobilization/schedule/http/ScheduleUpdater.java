@@ -8,6 +8,7 @@ import org.apache.http.client.ClientProtocolException;
 import org.mobilization.schedule.R;
 import org.mobilization.schedule.model.Event;
 import org.mobilization.schedule.ui.EventListAdapter;
+import org.mobilization.schedule.utils.StorageUtils;
 
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -60,6 +61,12 @@ public class ScheduleUpdater extends AsyncTask<Void, Void, Integer> {
 			// errorMessage = e.getMessage();
 			errorMessage = context.getString(R.string.couldnt_connect_to_host);// e.getMessage();
 			return 4;
+		} catch (RuntimeException e) {
+			Log.e("MobilizationSchedule", "Failed to download new schedule", e);
+			// errorMessage = e.getMessage();
+			errorMessage = context.getString(R.string.couldnt_connect_to_host);// e.getMessage();
+			StorageUtils.getScheduleCacheFile().delete();
+			return 5;
 		}
 		return 0;
 	}
