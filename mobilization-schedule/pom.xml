@@ -13,6 +13,7 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>mobilization-schedule-app</artifactId>
+	<version>1.0.0</version>
 	<packaging>apk</packaging>
 	<name>Mobilization Schedule - App</name>
 
