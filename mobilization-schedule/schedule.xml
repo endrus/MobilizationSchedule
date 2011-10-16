@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+  <org.mobilization.schedule.model.Event>
+    <title>Programowanie Windows Phone Mango</title>
+    <speaker>Bartłomiej Zass (Microsoft)</speaker>
+    <description>Bartłomiej will show an introduction to Windows Phone Mango programming, present phone interface, developer tools and ways of publishing an application to Marketplace.</description>
+    <from>2011-11-22 10:00:00.442 UTC</from>
+    <to>2011-11-22 10:45:00.442 UTC</to>
+    <hallId>0</hallId>
+  </org.mobilization.schedule.model.Event>
+  <org.mobilization.schedule.model.Event>
+    <title>Przesiadka z Symbiana C++ na Windows Phone 7 okiem programisty</title>
+    <speaker>Robert Kowalski (Cybercom)</speaker>
+    <description>In 2011 Nokia made a strategic choice of their new platform for smartphones. In cooperation with Microsoft, they offer a new OS for end-users as well as developers. Robert presents his subjective impressions about the new system in comparison to the good old Symbian – a former flagship Nokia product.</description>
+    <from>2011-11-22 11:00:00.442 UTC</from>
+    <to>2011-11-22 11:45:00.442 UTC</to>
+    <hallId>0</hallId>
+  </org.mobilization.schedule.model.Event>
+  <org.mobilization.schedule.model.Event>
+    <title>Multiplatform mobile apps</title>
+    <speaker>Konrad Hołowiński (QNH)</speaker>
+    <description>Nieustanny rozwój techniki i pęd do miniaturyzacji pozwolił zamknąć w urządzeniu mieszczącym się w dłoni moc obliczeniową peceta sprzed kilkunastu miesięcy. Dwu, a nawet czterordzeniowe procesory, gigabajty pamięci wraz z niespotykanymi wcześniej peryferiami jak akcelerometry, kamery oraz ekrany wielodotykowe oferują programistom wielkie pole do popisu. Wraz ze sprzętem następuje rozwój mobilnych systemów operacyjnych takich jak iOS, Android, WebOS, czy WP7, które się prześcigają w dostarczaniu użytkownikom kolejnych funkcjonalności.
+
+Jak mawiają od przybytku głowa nie boli, w istocie od strony konsumenta konkurencja na rynku zapewnia same plusy jednak dla programisty nie jest ona już tak różowa.  Wybór jednej platformy mocno nas ogranicza i bardzo często jest nieakceptowalny przez klienta ze względów biznesowych. Niestety utrzymanie wielu wersji na każdą z platform mobilnych jest kosztowne i wymaga dużo większych umiejętności oraz czasu.
+
+Najlepszym rozwiązaniem problemu jest jego ominięcie. Stworzenie jednej aplikacji w uniwersalnym języku i skompilowanie do wielu natywnych, obsługiwanych przez różne platformy eliminuje problem równoległego rozwoju i utrzymania wielu aplikacji, równocześnie zapewniając dostęp dla naszych użytkowników bez względu na urządzenie z którego korzystają.
+
+Prezentacja ma na celu pokazanie nowoczesnych metod tworzenia aplikacji które mogą być użyte na wielu platformach bazując na tym samym kodzie.</description>
+    <from>2011-11-22 13:00:42.442 UTC</from>
+    <to>2011-11-22 15:00:42.442 UTC</to>
+    <hallId>0</hallId>
+  </org.mobilization.schedule.model.Event>
+  <org.mobilization.schedule.model.Event>
+    <title>WP7 The speed of performance</title>
+    <speaker>Mieszko Lassota (Teleca)</speaker>
+    <description>WP7 prędkość wydajności” / “WP7 The speed of performance
+Celem prezentacji jest przedstawienie problemów i ich rozwiązań
+podczas pisania aplikacji na platformie Windows Phone 7. Przykłady
+zawarte w prezentacji są oparte o sytuacje wyjęte z projektów
+komercyjnych.</description>
+    <from>2011-11-22 13:45:42.442 UTC</from>
+    <to>2011-11-22 14:30:42.442 UTC</to>
+    <hallId>0</hallId>
+  </org.mobilization.schedule.model.Event>
+  <org.mobilization.schedule.model.Event>
+    <title>JavaScript a iOS</title>
+    <speaker>Maciej Stramski (SMT Software)</speaker>
+    <description>JavaScript and iOS budowanie aplikacji do komunikacji z JavaScriptem
+    koncept aplikacji do tworzenia interfejsów iOS wprost z html
+    </description>
+    <from>2011-11-22 14:45:42.442 UTC</from>
+    <to>2011-11-22 15:30:42.442 UTC</to>
+    <hallId>0</hallId>
+  </org.mobilization.schedule.model.Event>
+  <org.mobilization.schedule.model.Event>
+    <title>Damian Szczepanik</title>
+    <speaker>Testowanie aplikacji na prototypie</speaker>
+    <description>Wyobraź sobie, że handlowiec i architekt firmy, gdzie pracujesz zawarli kontrakt na wykonanie aplikacji niemal identycznej z tą, której zakończenie oblewałeś miesiąc temu. Cóż bardziej prostszego – rzec by się chciało!
+
+Twój architekt jednak jest nowy w branży (poprzednio projektował autostradę A2 i wiadomo, droga tj. robota się skończyła) i nie zawarł w umowie, na jaki model telefonu należy wdrożyć Twój program (to się potem spisze aneksem, ale ten telefon już widziałem… na targach w Berlinie).
+
+Drobiazg, ale deadline za miesiąc, hardware będzie na rynku za dwa miesiące (na allegro może tydzień wcześniej), a klient płaci dopiero po zakończeniu testów akceptacyjnych. O ile będą na czas, bo inaczej szef z Twojej premii będzie musiał pokryć kary umowne (nie mówił Ci o tym handlowiec?).
+
+Houston, we have a problem!
+I tutaj zaczyna się moja prezentacja, zapraszam serdecznie. </description>
+    <from>2011-11-22 15:45:42.442 UTC</from>
+    <to>2011-11-22 16:15:42.442 UTC</to>
+    <hallId>0</hallId>
+  </org.mobilization.schedule.model.Event>
+  <org.mobilization.schedule.model.Event>
+    <title>Apphance your mobile test process</title>
+    <speaker>Piotr Duda (Polidea)</speaker>
+    <description>Apphance is a product of Polidea company.
+Apphance is your instant, accurate and complete mobile test communication solution for Android and iOS.
+Apphance allows for problem reporting, crash logs, screenshots and logs to be tracked via an online administrative panel.
+Piotr Duda will eagerly explain methods of testing mobile applications and Polidea’s fresh tool to alleviate the testing process – Apphance. </description>
+    <from>2011-11-22 17:15:42.442 UTC</from>
+    <to>2011-11-22 17:45:42.442 UTC</to>
+    <hallId>0</hallId>
+  </org.mobilization.schedule.model.Event>
+  <org.mobilization.schedule.model.Event>
+    <title>Programowanie Android 3.0</title>
+    <speaker>Krzysztof Janik (SMT Software)</speaker>
+    <description>Pisanie aplikacji na Tablety z system Android 3.0
+
+    krótko o nowościach w najnowszej wersji systemu spod znaku Google’a (aktualnie 3.2)
+    dostosowywanie widoków w aplikacji do 7 i 10 calowych wyświetlaczy
+    animacje czas zacząć (dostępne klasy do animacji obiektów graficznych + wreszcie natywne wsparcie dla technologii Drag and Drop)
+    nowe struktury poprawiające wydajność aplikacji tabletowych np. Fragment
+    porównanie efektów graficznych i czasu potrzebnego na stworzenie różnych animacji na Tabletach z Androidem oraz urządzeniu iPad (iPad2)
+</description>
+    <from>2011-11-22 11:00:42.442 UTC</from>
+    <to>2011-11-22 11:45:42.442 UTC</to>
+    <hallId>1</hallId>
+  </org.mobilization.schedule.model.Event>
+  <org.mobilization.schedule.model.Event>
+    <title>Augumented Reality w Android </title>
+    <speaker>Adam Mencwal (ARNav.eu)</speaker>
+    <description>ARNav is an Android app for pedestrians and tourists that extremely simplifies navigation and giving directions to nearby Points of Interest.</description>
+    <from>2011-11-22 12:00:42.442 UTC</from>
+    <to>2011-11-22 12:45:42.442 UTC</to>
+    <hallId>1</hallId>
+  </org.mobilization.schedule.model.Event>
+  <org.mobilization.schedule.model.Event>
+    <title>Android and SmartTV</title>
+    <speaker>Matt Rutkowski (Fusionsheep)</speaker>
+    <description>SmartTV is a next-generation TVs. Phone, tablet is a great device that will enrich the way we use TV.
+I want to show how you can integrate with phone, tablet with SmartTV in particular, how to upload pictures, video from the phone to the TV without wires, without additional equipment. </description>
+    <from>2011-11-22 14:45:42.442 UTC</from>
+    <to>2011-11-22 15:30:42.442 UTC</to>
+    <hallId>1</hallId>
+  </org.mobilization.schedule.model.Event>
+  <org.mobilization.schedule.model.Event>
+    <title>Testowanie w Systemie Android</title>
+    <speaker>Marek Defeciński (Mobica)</speaker>
+    <description>Just a sample desc</description>
+    <from>2011-11-22 16:30:42.442 UTC</from>
+    <to>2011-11-22 17:00:42.442 UTC</to>
+    <hallId>1</hallId>
+  </org.mobilization.schedule.model.Event>
+</list>
